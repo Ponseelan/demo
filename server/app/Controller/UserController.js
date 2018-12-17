@@ -1,24 +1,27 @@
 var usermodel=require("../Model/UserModel");
 var userController={};
-validateloginName=function(LoginName)
+validateloginName=function(LoginName,response,callback)
 {
-    usermodel.find({"LoginName":LoginName},function(err,user)
+    usermodel.findOne({"LoginName":LoginName},function(err,user)
     {
         if(err)
         throw err;
-        if(user==null)
-        return true;
-        else 
-        false;
+        if(user==null || user.length==0)
+        callback();
+        else
+        {
+            response.end("User Name Already Exists");
+        }
     })
 }
 userController.Create=function(user,res)
 {
 var userentity=new usermodel();
-userentity.FirstName=user.firstName;
-userentity.LastName=user.lastName;
+userentity.FirstName=user.FirstName;
+userentity.LastName=user.LastName;
 userentity.IsActive=true;
-validateloginName(userentity.LoginName,function()
+userentity.LoginName=user.LoginName;
+validateloginName(userentity.LoginName,res,function()
 {
     userentity.save(function(err)
 {
@@ -31,15 +34,15 @@ res.end("user added");
 }
 userController.FormUserEntity=function(req)
 {
-usermodel.firstName=req.body.firstName;
-usermodel.lastName=req.body.lastName;
+usermodel.FirstName=req.body.FirstName;
+usermodel.LastName=req.body.LastName;
+usermodel.LoginName=req.body.LoginName;
 return usermodel;
 }
 userController.GetAllActiveUsers=function(res)
 {
     usermodel.find({},function(err,users)
     {
-var res=JSON.stringify(users);
 res.send(users);
     })
 }
