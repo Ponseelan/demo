@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {User} from '../Model/user';
+import {AuthenticateService} from '../service/AuthenticateService';
 @Component(
     {
         selector:'login',
@@ -7,9 +8,10 @@ import {User} from '../Model/user';
     })
     export class LoginComponent 
     {
-         userModel=new User('POnseelan','emil','check','password-1');
+        constructor(private authenticateService:AuthenticateService){}
+         userModel=new User('Ponseelan','emil','check','password-1');
          submit()
          {
-             console.log(this.userModel);
+            this.authenticateService.login(this.userModel.LoginName,this.userModel.Password);
          }
     }
