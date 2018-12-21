@@ -9,7 +9,7 @@ export class AuthenticateService
     {}
     login(loginName :String,Password:String)
     {
-  this.http.post(Config.AppURL+"/createUser",{LoginName:loginName,Password:Password})
+  this.http.post(Config.AppURL+"/createUser",{LoginName:loginName,Password:Password},{responseType:"text"})
   .subscribe(data=>{console.log(data)});
     }
 }

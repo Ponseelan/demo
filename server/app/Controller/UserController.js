@@ -10,7 +10,8 @@ validateloginName=function(LoginName,response,callback)
         callback();
         else
         {
-            response.end("User Name Already Exists");
+            var errormessage='{"result":False, "ErrorMessage":"User Name Already Exists"}';
+            response.end(errormessage);
         }
     })
 }
