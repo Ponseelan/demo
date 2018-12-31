@@ -7,9 +7,9 @@ export class AuthenticateService
 {
     constructor(public http:HttpClient)
     {}
-    login(loginName :String,Password:String)
+    login(UserModel)
     {
-  this.http.post(Config.AppURL+"/createUser",{LoginName:loginName,Password:Password},{responseType:"text"})
+  this.http.post(Config.AppURL+"/createUser",{UserModel},{responseType:"text"})
   .subscribe(data=>{console.log(data)});
     }
 }

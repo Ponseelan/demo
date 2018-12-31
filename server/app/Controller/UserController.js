@@ -35,9 +35,9 @@ res.end("user added");
 }
 userController.FormUserEntity=function(req)
 {
-usermodel.FirstName=req.body.FirstName;
-usermodel.LastName=req.body.LastName;
-usermodel.LoginName=req.body.LoginName;
+usermodel.FirstName=req.body.UserModel.FirstName;
+usermodel.LastName=req.body.UserModel.LastName;
+usermodel.LoginName=req.body.UserModel.LoginName;
 return usermodel;
 }
 userController.GetAllActiveUsers=function(res)
