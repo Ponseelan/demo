@@ -10,7 +10,7 @@ validateloginName=function(LoginName,response,callback)
         callback();
         else
         {
-            var errormessage='{"result":False, "ErrorMessage":"User Name Already Exists"}';
+            var errormessage='{"result":false, "Message":"User Name Already Exists"}';
             response.end(errormessage);
         }
     })
@@ -28,7 +28,8 @@ validateloginName(userentity.LoginName,res,function()
 {
 if(err)
 throw err;
-res.end("user added");
+var successMessage='{"result":true,"Message":"User Added"}';
+res.end(successMessage);
 });
 });
 
