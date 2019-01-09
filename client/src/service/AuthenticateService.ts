@@ -11,14 +11,8 @@ export class AuthenticateService
     result:Object;
     constructor(public http:HttpClient)
     {}
-    login(UserModel,callback)
+    login(UserModel):Observable<any>
     {
-      return this.http.post(Config.AppURL+"/createUser",{UserModel},{responseType:'json'})
-                 .pipe(map(data => {return data;}))
-                 .subscribe((x)=>
-                    {
-                        callback(x);
-                    })
-            
+      return this.http.post(Config.AppURL+"/createUser",{UserModel},{responseType:'json'});
     }
 }
