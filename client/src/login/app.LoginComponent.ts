@@ -1,26 +1,13 @@
-import { Component } from '@angular/core';
-import {User} from '../Model/user';
-import {AuthenticateService} from '../service/AuthenticateService';
+import {Component} from '@angular/core';
+
 @Component(
     {
-        selector:'login',
-        templateUrl:"./app.LoginComponent.html"
+        templateUrl:'./app.LognComponent.html'
     })
-    export class LoginComponent 
+    export class LoginComponent
     {
-
-        constructor(private authenticateService:AuthenticateService){}
-        userModel=new User("","","","");
-        tohideErrorMessage:Boolean=false;
-        ErrorMessage:String="Ponseelan is Error";
-        
-         submit()
-         {
-           this.authenticateService.login(this.userModel)
-           .subscribe((res)=>
-           {
-            this.tohideErrorMessage=res.result; 
-            this.ErrorMessage=res.Message;
-           })
-}
-}
+          Login()
+          {
+              
+          }  
+    }

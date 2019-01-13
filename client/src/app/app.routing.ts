@@ -1,10 +1,10 @@
 import {Routes,RouterModule} from '@angular/router';
 
-import {LoginComponent} from '../login/app.LoginComponent';
+import {RegisterComponent} from '../Register/app.RegisterComponent';
 const appRoutes:Routes=
 [
-    {path:'Login',component:LoginComponent},
-    {path:'',component:LoginComponent}
+    {path:'Login',component:RegisterComponent},
+    {path:'',component:RegisterComponent}
 ]
 
 export const routing=RouterModule.forRoot(appRoutes);

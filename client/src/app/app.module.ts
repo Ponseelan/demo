@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from 'src/login/app.LoginComponent';
+import { RegisterComponent } from 'src/Register/app.RegisterComponent';
 import{routing} from './app.routing';
 import {FormsModule} from "@angular/forms"
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { AuthenticateService } from 'src/service/AuthenticateService';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    RegisterComponent
     ],
   imports: [
     BrowserModule,
