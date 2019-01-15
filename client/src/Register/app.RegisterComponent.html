@@ -20,7 +20,7 @@
         <input type="text" class="form-control" id="LoginName" required [(ngModel)]="userModel.LoginName" name="LoginName"/>
       </div>
  <div>
-   <span  [hidden]='tohideErrorMessage' [innerHtml]="ErrorMessage"></span>
+   <span  [hidden]='tohideErrorMessage' class="alert alert-danger" [innerHtml]="ErrorMessage"></span>
  </div>
       <button type="submit" class="btn btn-success">Submit</button>
  

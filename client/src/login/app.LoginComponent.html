@@ -1,8 +1,14 @@
 <div>
-    <form >
+    <form (ngSubmit)='Login()'>
         <div class="form-group">
             <label for="LoginName">Login Name</label>
-            <input type="text" class="form-control" id="LoginName" required [(ngModel)]="userModel.LoginName" name="LoginName"/>
+            <input type="text" class="form-control" id="LoginName" required [(ngModel)]="loginModel.LoginName" name="LoginName"/>
           </div>
+
+          <div class="form-group">
+            <label for="LoginName">Password</label>
+            <input type="password" class="form-control" id="password" required [(ngModel)]="loginModel.Password1" name="Password"/>
+          </div>
+          <button type="submit" class="btn btn-success">Login</button>
     </form>
 </div>

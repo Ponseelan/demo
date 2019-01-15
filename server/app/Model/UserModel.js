@@ -6,6 +6,6 @@ var userSchema=mongoose.Schema(
         IsActive:Boolean,
         LoginName:String,
         Password:String
-    })
+    });
     var user=mongoose.model("users",userSchema);
 module.exports=user;

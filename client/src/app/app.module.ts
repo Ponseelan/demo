@@ -8,11 +8,13 @@ import {FormsModule} from "@angular/forms"
 import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticateService } from 'src/service/AuthenticateService';
+import { LoginComponent } from 'src/Login/app.LoginComponent';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
     ],
   imports: [
     BrowserModule,
