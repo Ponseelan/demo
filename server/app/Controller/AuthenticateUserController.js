@@ -8,7 +8,14 @@ AuthenticateUserController.Authenticate=function(LoginName,Password,callback)
     {
     callback(false,err);
     }
+    else if(data==null)
+    {
+        callback(false,"No records Found");
+    }
+    else
+    {
     callback(true,data);
+    }
     })
 }
 module.exports=AuthenticateUserController;

@@ -12,7 +12,7 @@ router.post("/createUser",function(req,res)
     userController.Create(user,res);
     
 })
-router.get("/Login",function(req,res)
+router.post("/Login",function(req,res)
 {
     LoginController.LoginUser(req.body,res);
 })
