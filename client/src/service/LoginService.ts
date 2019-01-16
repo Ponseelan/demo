@@ -6,13 +6,13 @@ import {Observable} from 'rxjs';
 // Import RxJs required methods
 import {map} from 'rxjs/operators';
 @Injectable()
-export class AuthenticateService 
+export class LoginService 
 {
     result:Object;
     constructor(public http:HttpClient)
     {}
-    login(UserModel):Observable<any>
+    Auth(LoginModel):Observable<any>
     {
-      return this.http.post(Config.AppURL+"/createUser",{UserModel},{responseType:'json'});
+      return this.http.post(Config.AppURL+"/Login",LoginModel,{responseType:'json'});
     }
 }

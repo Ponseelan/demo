@@ -9,6 +9,9 @@
             <label for="LoginName">Password</label>
             <input type="password" class="form-control" id="password" required [(ngModel)]="loginModel.Password1" name="Password"/>
           </div>
+          <div>
+              <span [innerHtml]='LoginErrorMessage' [hidden]='IsLoginError'></span>
+          </div>
           <button type="submit" class="btn btn-success">Login</button>
     </form>
 </div>

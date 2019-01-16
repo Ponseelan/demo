@@ -14,17 +14,20 @@ AuthenticateController.Authenticate(LoginModel.LoginName,LoginModel.Password,fun
         {
             if(IsSuccess)
             {
-                res.end("Logged in SuccessFullly");
+                var resultJson='{"status":true,"Message","Logged In successfully"}';
+                res.end(resultJson);
             }
             else
             {
-                res.end("Login failed");
+                var resultJson='{"status":false,"Message","Login failed}';
+                res.end(resultJson);
             }
         });
     }
     else
     {
-        res.end("Access Denied");
+        var resultJson='{"status":false,"Message":"Access Denied"}';
+        res.end(resultJson);
     //res.send(status);
     }
 });

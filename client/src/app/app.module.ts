@@ -7,7 +7,7 @@ import{routing} from './app.routing';
 import {FormsModule} from "@angular/forms"
 import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthenticateService } from 'src/service/AuthenticateService';
+import { LoginService } from 'src/service/LoginService';
 import { LoginComponent } from 'src/Login/app.LoginComponent';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { LoginComponent } from 'src/Login/app.LoginComponent';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthenticateService],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

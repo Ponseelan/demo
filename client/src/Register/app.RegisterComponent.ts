@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {User} from '../Model/user';
-import {AuthenticateService} from '../service/AuthenticateService';
 import {Router} from '@angular/router';
+import { RegisterService } from 'src/service/RegisterService';
 @Component(
     {
         selector:'login',
@@ -9,14 +9,14 @@ import {Router} from '@angular/router';
     })
     export class RegisterComponent 
     {
-        constructor(private authenticateService:AuthenticateService,private router:Router){}
+        constructor(private registerService:RegisterService,private router:Router){}
         userModel=new User("","","","");
         tohideErrorMessage:Boolean=false;
         ErrorMessage:String="Ponseelan is Error";
         
          submit(HtmlInputElement)
          {
-           this.authenticateService.login(this.userModel)
+           this.registerService.Register(this.userModel)
            .subscribe((res)=>
            {
             this.tohideErrorMessage=res.result; 
