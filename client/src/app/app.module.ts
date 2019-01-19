@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from 'src/service/LoginService';
 import { LoginComponent } from 'src/Login/app.LoginComponent';
+import { RegisterService } from 'src/service/RegisterService';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { LoginComponent } from 'src/Login/app.LoginComponent';
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginService],
+  providers: [LoginService,RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

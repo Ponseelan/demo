@@ -6,7 +6,8 @@ const appRoutes:Routes=
 [
     {path:'Login',component:LoginComponent},
     {path:'',component:LoginComponent},
-    {path:'Register',component:RegisterComponent}
+    {path:'Register',component:RegisterComponent},
+    {path:"RedirectRegister",redirectTo:"/Register"}
 ]
 
 export const routing=RouterModule.forRoot(appRoutes);
