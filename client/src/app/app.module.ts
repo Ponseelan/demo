@@ -10,12 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from 'src/service/LoginService';
 import { LoginComponent } from 'src/Login/app.LoginComponent';
 import { RegisterService } from 'src/service/RegisterService';
+import { DummyDirective } from 'src/Directive/app.DummyDirective';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    DummyDirective
     ],
   imports: [
     BrowserModule,

@@ -9,10 +9,12 @@ import { RegisterService } from 'src/service/RegisterService';
     })
     export class RegisterComponent 
     {
-        constructor(private registerService:RegisterService,private router:Router){}
+        constructor(private registerService:RegisterService,private router:Router)
+        {
+        }
         userModel=new User("","","","");
-        tohideErrorMessage:Boolean=false;
-        ErrorMessage:String="Ponseelan is Error";
+        tohideErrorMessage:Boolean=true;
+        ErrorMessage:String="";
         
          submit(HtmlInputElement)
          {
