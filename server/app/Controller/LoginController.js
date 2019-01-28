@@ -27,7 +27,7 @@ AuthenticateController.Authenticate(LoginModel.LoginName,LoginModel.Password,fun
     else
     {
         var resultJson='{"status":false,"Message":"Access Denied"}';
-        res.end(resultJson);
+        res.end(resultJson); 
     //res.send(status);
     }
 });
