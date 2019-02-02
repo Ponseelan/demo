@@ -4,8 +4,8 @@ var UserLoginHistoryController=require("../Controller/UserLoginHistoryController
 var LoginController={};
 LoginController.LoginUser=function(body,res)
 {
-LoginModel.LoginName=body.LoginName;
-LoginModel.Password=body.Password;
+LoginModel.LoginName=body.LoginModel.LoginName;
+LoginModel.Password=body.LoginModel.Password;
 AuthenticateController.Authenticate(LoginModel.LoginName,LoginModel.Password,function(IsSuccess,data)
 {
     if(IsSuccess)
@@ -14,12 +14,12 @@ AuthenticateController.Authenticate(LoginModel.LoginName,LoginModel.Password,fun
         {
             if(IsSuccess)
             {
-                var resultJson='{"status":true,"Message","Logged In successfully"}';
+                var resultJson='{"status":true,"Message":"Logged In successfully"}';
                 res.end(resultJson);
             }
             else
             {
-                var resultJson='{"status":false,"Message","Login failed}';
+                var resultJson='{"status":false,"Message":"Login failed"}';
                 res.end(resultJson);
             }
         });

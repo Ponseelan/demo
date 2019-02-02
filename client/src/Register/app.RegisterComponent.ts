@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewChecked } from '@angular/core';
 import {User} from '../Model/user';
 import {Router} from '@angular/router';
 import { RegisterService } from 'src/service/RegisterService';
@@ -28,5 +28,5 @@ import { RegisterService } from 'src/service/RegisterService';
                 this.router.navigate(['']);
             }
            })
-}
+        }
 }

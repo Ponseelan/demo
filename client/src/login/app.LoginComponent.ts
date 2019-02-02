@@ -11,7 +11,7 @@ import {Config} from '../config';
     export class LoginComponent
     {
       IsLoginError:Boolean=false;
-      LoginErrorMessage:String="first";
+      LoginErrorMessage:String="";
         loginModel:LoginModel;
         constructor(private loginService:LoginService)
         {
@@ -25,8 +25,8 @@ import {Config} from '../config';
                if(!res.status)
                {
                    this.IsLoginError=res.status;
-                   this.LoginErrorMessage=res.Message;
-                        
+                   this.LoginErrorMessage=res.Message;   
+                   localStorage.setItem("UserName","ponseelan");     
                }
              })
           }  

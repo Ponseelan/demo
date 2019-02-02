@@ -10,16 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from 'src/service/LoginService';
 import { LoginComponent } from 'src/Login/app.LoginComponent';
 import { RegisterService } from 'src/service/RegisterService';
-import { DummyDirective } from 'src/Directive/app.DummyDirective';
-import { LoopDirective } from 'src/Directive/app.LoopDirective';
+import { ConfirmPasswordDirective } from 'src/Directive/app.ConfirmPasswordDirective';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoopDirective,
     RegisterComponent,
     LoginComponent,
-    DummyDirective
+    ConfirmPasswordDirective
     ],
   imports: [
     BrowserModule,

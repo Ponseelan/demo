@@ -13,6 +13,6 @@ export class LoginService
     {}
     Auth(LoginModel):Observable<any>
     {
-      return this.http.post(Config.AppURL+"/Login",LoginModel,{responseType:'json'});
+      return this.http.post(Config.AppURL+"/Login",{LoginModel},{responseType:"json"});
     }
 }

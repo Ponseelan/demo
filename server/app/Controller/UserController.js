@@ -10,7 +10,7 @@ validateloginName=function(LoginName,response,callback)
         callback();
         else
         {
-            var errormessage='{"result":false, "Message":"User Name Already Exists"}';
+            var errormessage='{"result":false, "Message":"Login Name Already Exists"}';
             response.end(errormessage);
         }
     })
@@ -22,6 +22,7 @@ userentity.FirstName=user.FirstName;
 userentity.LastName=user.LastName;
 userentity.IsActive=true;
 userentity.LoginName=user.LoginName;
+userentity.Password=user.Password;
 validateloginName(userentity.LoginName,res,function()
 {
     userentity.save(function(err)
@@ -39,6 +40,7 @@ userController.FormUserEntity=function(req)
 usermodel.FirstName=req.body.UserModel.FirstName;
 usermodel.LastName=req.body.UserModel.LastName;
 usermodel.LoginName=req.body.UserModel.LoginName;
+usermodel.Password=req.body.UserModel.Password
 return usermodel;
 }
 userController.GetAllActiveUsers=function(res)
