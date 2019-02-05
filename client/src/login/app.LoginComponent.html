@@ -9,11 +9,11 @@
             <label for="LoginName">Password</label>
             <input type="password" class="form-control" id="password" required [(ngModel)]="loginModel.Password" name="Password"/>
           </div>
-          <div>
-              <span [innerHtml]='LoginErrorMessage' [hidden]='IsLoginError'></span>
+          <div class="alert-danger">
+              <span  [innerHtml]='LoginErrorMessage' [hidden]='IsLoginError'></span>
           </div>
           <button type="submit" class="btn btn-success">Login</button>
-
-          <a  routerLink="RedirectRegister"> Reegister</a>
+<br/>
+          <a  routerLink="RedirectRegister"> Register</a>
     </form>
 </div>

@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
-import { User } from 'src/Model/user';
 import { LoginModel } from 'src/Model/LoginModel';
 import {LoginService} from '../service/LoginService';
-import { HttpClient } from '@angular/common/http';
-import {Config} from '../config';
+import { Router } from '@angular/router';
 @Component(
     {
         templateUrl:'./app.LoginComponent.html'
@@ -13,7 +11,7 @@ import {Config} from '../config';
       IsLoginError:Boolean=false;
       LoginErrorMessage:String="";
         loginModel:LoginModel;
-        constructor(private loginService:LoginService)
+        constructor(private loginService:LoginService,private route:Router)
         {
            this.loginModel=new LoginModel();
         }
@@ -25,8 +23,12 @@ import {Config} from '../config';
                if(!res.status)
                {
                    this.IsLoginError=res.status;
-                   this.LoginErrorMessage=res.Message;   
-                   localStorage.setItem("UserName","ponseelan");     
+                   this.LoginErrorMessage=res.Message;    
+               }
+               else
+               {
+                localStorage.setItem("UserName",res.token); 
+                 this.route.navigate(["/dashboard"]);
                }
              })
           }  

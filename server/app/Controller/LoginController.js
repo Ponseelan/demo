@@ -1,6 +1,7 @@
 var LoginModel=require("../Model/LoginModel");
 var AuthenticateController=require("../Controller/AuthenticateUserController");
 var UserLoginHistoryController=require("../Controller/UserLoginHistoryController");
+var jsonwebtoken=require('jsonwebtoken');
 var LoginController={};
 LoginController.LoginUser=function(body,res)
 {
@@ -14,7 +15,8 @@ AuthenticateController.Authenticate(LoginModel.LoginName,LoginModel.Password,fun
         {
             if(IsSuccess)
             {
-                var resultJson='{"status":true,"Message":"Logged In successfully"}';
+               var token= jsonwebtoken.sign({LoginName:LoginModel.LoginName},'secret');
+                var resultJson='{"status":true,"Message":"Logged In successfully","token":"'+token+'"}';
                 res.end(resultJson);
             }
             else

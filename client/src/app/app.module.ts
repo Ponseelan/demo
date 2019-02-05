@@ -11,13 +11,16 @@ import { LoginService } from 'src/service/LoginService';
 import { LoginComponent } from 'src/Login/app.LoginComponent';
 import { RegisterService } from 'src/service/RegisterService';
 import { ConfirmPasswordDirective } from 'src/Directive/app.ConfirmPasswordDirective';
+import { DashboardComponent } from 'src/Dashboard/app.dashboard';
+import { JWTAuthenticator } from 'src/service/JWTAuthenticatorService';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ConfirmPasswordDirective
+    ConfirmPasswordDirective,
+    DashboardComponent
     ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { ConfirmPasswordDirective } from 'src/Directive/app.ConfirmPasswordDirec
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginService,RegisterService],
+  providers: [LoginService,RegisterService,JWTAuthenticator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
