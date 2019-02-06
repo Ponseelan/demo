@@ -1,4 +1,5 @@
 var usermodel=require("../Model/UserModel");
+var bcrypt=require('../Controller/EncryptionController');
 var userController={};
 validateloginName=function(LoginName,response,callback)
 {
@@ -17,22 +18,26 @@ validateloginName=function(LoginName,response,callback)
 }
 userController.Create=function(user,res)
 {
-var userentity=new usermodel();
-userentity.FirstName=user.FirstName;
-userentity.LastName=user.LastName;
-userentity.IsActive=true;
-userentity.LoginName=user.LoginName;
-userentity.Password=user.Password;
-validateloginName(userentity.LoginName,res,function()
-{
-    userentity.save(function(err)
-{
-if(err)
-throw err;
-var successMessage='{"result":true,"Message":"User Added"}';
-res.end(successMessage);
-});
-});
+    bcrypt.Encrypt(user.Password,function(encryptedPassword)
+    {
+        var userentity=new usermodel();
+        userentity.FirstName=user.FirstName;
+        userentity.LastName=user.LastName;
+        userentity.IsActive=true;
+        userentity.LoginName=user.LoginName;
+        userentity.Password=encryptedPassword;
+        validateloginName(userentity.LoginName,res,function()
+        {
+            userentity.save(function(err)
+        {
+        if(err)
+        throw err;
+        var successMessage='{"result":true,"Message":"User Added"}';
+        res.end(successMessage);
+        });
+        });
+    })
+
 
 }
 userController.FormUserEntity=function(req)
