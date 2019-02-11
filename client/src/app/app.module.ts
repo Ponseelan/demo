@@ -13,8 +13,8 @@ import { RegisterService } from 'src/service/RegisterService';
 import { ConfirmPasswordDirective } from 'src/Directive/app.ConfirmPasswordDirective';
 import { DashboardComponent } from 'src/Dashboard/app.dashboard';
 import { JWTAuthenticator } from 'src/service/JWTAuthenticatorService';
-import { MyGridApplicationComponent } from 'src/Grid/MyGridApplication/app.MyGridApplication';
-import { RedComponentComponent } from 'src/Grid/RedComponent/app.RedComponent';
+import { UserService } from 'src/service/UserService';
+import { UserGrid } from 'src/Grid/UserGrids/app.UserGrid';
 
 @NgModule({
   declarations: [
@@ -23,17 +23,16 @@ import { RedComponentComponent } from 'src/Grid/RedComponent/app.RedComponent';
     LoginComponent,
     ConfirmPasswordDirective,
     DashboardComponent,
-    MyGridApplicationComponent,
-        RedComponentComponent
+    UserGrid
     ],
   imports: [
     BrowserModule,
     routing,
     FormsModule,
     HttpClientModule,
-    AgGridModule.withComponents([RedComponentComponent])
+    AgGridModule.withComponents([])
   ],
-  providers: [LoginService,RegisterService,JWTAuthenticator],
+  providers: [LoginService,RegisterService,JWTAuthenticator,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

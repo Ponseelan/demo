@@ -1,0 +1,5 @@
+<div>
+    <button (click)='getSelectedRows()'>logRows</button>
+    <ag-grid-angular style="width: 500px; height: 500px;" 
+    class="ag-theme-balham" #agGrid [rowData]="rowdata | async" [columnDefs]="columnDefs" rowSelection="multiple"></ag-grid-angular>
+</div>

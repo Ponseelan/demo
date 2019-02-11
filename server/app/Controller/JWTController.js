@@ -11,7 +11,7 @@ jwtController.Validatetoken=function(req,res)
         }
         else
         {
-        var result='{status:true,Message:"Token Authentication Successfull"}';
+        var result='{"status":"true","Message":"Token Authentication Successfull"}';
         res.end(result);
         }
     });  
