@@ -1,4 +1,4 @@
 export const Config=
 {
-    AppURL:"http://localhost:8081"
+    AppURL:"http://lw-ponseelan:8081"
 };

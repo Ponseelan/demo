@@ -51,8 +51,6 @@
     <div *ngIf='(tohideErrorMessage || !LoginName.touched)' class="form-group">
       <span [hidden]='(tohideErrorMessage || !LoginName.touched)' class="alert alert-danger" [innerHtml]="ErrorMessage"></span>
     </div>
-    <div>{{LoginName.touched}}</div>
-    <div>{{tohideErrorMessage}}</div>
     <div class="form-group">
       <button type="submit" [disabled]='f.invalid' class="btn btn-success">Submit</button>
     </div>

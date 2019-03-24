@@ -17,6 +17,10 @@ export class UserGrid implements OnInit {
     {
        
     }
+    SelectedRows()
+    {
+        console.log("code");
+    }
     ngAfterViewInit()
     {
         console.log(this.agGrid);
