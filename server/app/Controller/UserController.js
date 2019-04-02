@@ -56,4 +56,12 @@ res.send(users);
     })
 }
 
+userController.GetSingleUserById=function(req,res)
+{
+    usermodel.findOne({_id:req.body.Id},function(err,user)
+    {
+res.send(user);
+    })
+}
+
 module.exports=userController;

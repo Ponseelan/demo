@@ -26,4 +26,7 @@ router.get("/GetAllUsers", function (req, res) {
 router.get("/", function (req, res) {
     res.end("normal");
 })
+router.post("/GetSingleUserById", function (req, res) {
+    userController.GetSingleUserById(req,res);
+})
 module.exports = router;

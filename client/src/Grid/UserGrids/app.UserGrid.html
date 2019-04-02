@@ -1,5 +1,5 @@
 <div>
-    <button (click)='getSelectedRows()'>logRows</button>
+        <button (click)="editUser()">Open dialog</button>
     <ag-grid-angular style="width: 500px; height: 500px;" 
     class="ag-theme-balham" (rowClicked)="SelectedRows()" #agGrid [rowData]="rowdata | async" [columnDefs]="columnDefs" ></ag-grid-angular>
 </div>

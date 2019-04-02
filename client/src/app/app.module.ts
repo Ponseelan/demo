@@ -15,6 +15,9 @@ import { DashboardComponent } from 'src/Dashboard/app.dashboard';
 import { JWTAuthenticator } from 'src/service/JWTAuthenticatorService';
 import { UserService } from 'src/service/UserService';
 import { UserGrid } from 'src/Grid/UserGrids/app.UserGrid';
+import { UserEditComponent } from 'src/EditDialog/UserEdit/UserEditComponent';
+import { MatDialogModule, MatNativeDateModule, MatCardModule, MatToolbarModule, MatIconModule, MatButtonModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -23,16 +26,27 @@ import { UserGrid } from 'src/Grid/UserGrids/app.UserGrid';
     LoginComponent,
     ConfirmPasswordDirective,
     DashboardComponent,
-    UserGrid
+    UserGrid,
+  UserEditComponent
     ],
   imports: [
-    BrowserModule,
+    BrowserModule,  
+    BrowserAnimationsModule,  
     routing,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatNativeDateModule,
     AgGridModule.withComponents([])
   ],
   providers: [LoginService,RegisterService,JWTAuthenticator,UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+   UserEditComponent
+   ]
 })
 export class AppModule { }
