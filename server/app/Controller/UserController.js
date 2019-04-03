@@ -48,11 +48,16 @@ usermodel.LoginName=req.body.UserModel.LoginName;
 usermodel.Password=req.body.UserModel.Password
 return usermodel;
 }
+formJson=function(param)
+{
+    return {_id:param._id,FirstName:param.FirstName,LastName:param.LastName,LoginName:param.LoginName,IsEdited:false,IsActive:param.IsActive};
+}
 userController.GetAllActiveUsers=function(res)
 {
     usermodel.find({},function(err,users)
     {
-res.send(users);
+        var userresult=users.map(n=>this.formJson(n));
+res.send(userresult);
     })
 }
 
