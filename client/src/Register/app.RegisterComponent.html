@@ -22,10 +22,10 @@
     </div>
     <div class="form-group">
       <label for="LoginName">Login Name</label>
-      <input type="text" class="form-control" id="LoginName" required [(ngModel)]="userModel.LoginName" #LoginName='ngModel'
+      <input type="text" class="form-control" id="LoginName" (mouseenter) ="ResetAlreadyLoginNameExistErrorMessage()" required [(ngModel)]="userModel.LoginName" #LoginName='ngModel'
         name="LoginName" />
     </div>
-    <div *ngIf='LoginName.errors && LoginName.touched' class="alert alert-danger">
+    <div *ngIf='LoginName.errors && LoginName.touched'  class="alert alert-danger">
       <div [hidden]='!LoginName.errors.required'>LoginName is required</div>
 
     </div>
@@ -48,9 +48,10 @@
       <div [hidden]='!ConfirmPassword.errors'>Password and Confirm password Does not Match</div>
     </div>
 
-    <div *ngIf='(tohideErrorMessage || !LoginName.touched)' class="form-group">
+    <div *ngIf='(LoginName.errors && LoginName.touched) || !tohideErrorMessage' class="form-group">
       <span [hidden]='(tohideErrorMessage || !LoginName.touched)' class="alert alert-danger" [innerHtml]="ErrorMessage"></span>
     </div>
+    {{LoginName.errors}}
     <div class="form-group">
       <button type="submit" [disabled]='f.invalid' class="btn btn-success">Submit</button>
     </div>
