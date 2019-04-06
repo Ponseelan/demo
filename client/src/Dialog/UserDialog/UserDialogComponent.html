@@ -1,0 +1,26 @@
+<mat-card-header>
+    <mat-toolbar></mat-toolbar>
+    <mat-card-content>
+            <form (ngSubmit)="submit(ConfirmPassword)" #f='ngForm'>
+                    <div class="form-group">
+                      <label for="FirstName">First Name</label>
+                      <input type="text" class="form-control" id="FirstName" required [(ngModel)]="userModel.FirstName" name="FirstName"
+                        #FirstName="ngModel">
+                    </div>
+                    {{ngModel}}
+                    <div *ngIf="FirstName.errors && FirstName.touched" class="alert alert-danger">
+                      <div [hidden]="!FirstName.errors.required">
+                        {{FirstName.name}} title is required!
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="LastName">Last Name</label>
+                      <input type="text" class="form-control" id="LastName" required [(ngModel)]="userModel.LastName" #LastName='ngModel'
+                        name="LastName" />
+                    </div>
+                    <div *ngIf='LastName.errors && LastName.touched' class="alert alert-danger">
+                      <div [hidden]='!LastName.errors.required'>LastName is required</div>
+                    </div>
+                    </form>
+    </mat-card-content>
+</mat-card-header>

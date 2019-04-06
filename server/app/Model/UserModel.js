@@ -5,7 +5,8 @@ var userSchema=mongoose.Schema(
         LastName:String,
         IsActive:Boolean,
         LoginName:String,
-        Password:String
+        Password:String,
+        IsAdmin:Boolean
     });
     var user=mongoose.model("users",userSchema);
 module.exports=user;

@@ -11,7 +11,7 @@ import { LoginService } from 'src/service/LoginService';
 import { LoginComponent } from 'src/Login/app.LoginComponent';
 import { RegisterService } from 'src/service/RegisterService';
 import { ConfirmPasswordDirective } from 'src/Directive/app.ConfirmPasswordDirective';
-import { DashboardComponent } from 'src/Dashboard/app.dashboard';
+import { AdminDashboardComponent } from 'src/AdminDashboard/app.Admindashboard';
 import { JWTAuthenticator } from 'src/service/JWTAuthenticatorService';
 import { UserService } from 'src/service/UserService';
 import { UserGrid } from 'src/Grid/UserGrids/app.UserGrid';
@@ -25,7 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     RegisterComponent,
     LoginComponent,
     ConfirmPasswordDirective,
-    DashboardComponent,
+    AdminDashboardComponent,
     UserGrid,
   UserEditComponent
     ],

@@ -28,7 +28,7 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
                 this.tohideErrorMessage=true;
             }
         }
-        userModel=new User("","","","");
+        userModel=new User("","","","",false);
         tohideErrorMessage:Boolean=true;
         ErrorMessage:String="";
         

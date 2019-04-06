@@ -6,10 +6,10 @@ import { UserEditComponent } from 'src/EditDialog/UserEdit/UserEditComponent';
 @Component(
     {
         selector:'dashboard',
-        templateUrl: './app.dashboard.html',
+        templateUrl: './app.Admindashboard.html',
         entryComponents:[UserEditComponent]
     })
-export class DashboardComponent implements OnInit {
+export class AdminDashboardComponent implements OnInit {
     constructor(private jwtauthenticator: JWTAuthenticator,private router:Router) {
 
     }

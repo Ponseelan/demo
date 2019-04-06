@@ -26,6 +26,7 @@ userController.Create=function(user,res)
         userentity.IsActive=true;
         userentity.LoginName=user.LoginName;
         userentity.Password=encryptedPassword;
+        userentity.IsAdmin=user.IsAdmin;
         validateloginName(userentity.LoginName,res,function()
         {
             userentity.save(function(err)
@@ -45,12 +46,21 @@ userController.FormUserEntity=function(req)
 usermodel.FirstName=req.body.UserModel.FirstName;
 usermodel.LastName=req.body.UserModel.LastName;
 usermodel.LoginName=req.body.UserModel.LoginName;
-usermodel.Password=req.body.UserModel.Password
+usermodel.Password=req.body.UserModel.Password;
+usermodel.IsAdmin=req.body.UserModel.IsAdmin;
 return usermodel;
 }
 formJson=function(param)
 {
-    return {_id:param._id,FirstName:param.FirstName,LastName:param.LastName,LoginName:param.LoginName,IsEdited:false,IsActive:param.IsActive};
+    return {
+        _id:param._id,
+        FirstName:param.FirstName,
+        LastName:param.LastName,
+        LoginName:param.LoginName,
+        IsEdited:false,
+        IsActive:param.IsActive,
+        IsAdmin:param.IsAdmin
+    };
 }
 userController.GetAllActiveUsers=function(res)
 {
