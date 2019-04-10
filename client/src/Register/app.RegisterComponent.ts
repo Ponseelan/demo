@@ -20,6 +20,7 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
         {
             
         }
+
         ResetAlreadyLoginNameExistErrorMessage()
         {
             console.log("error");
@@ -28,13 +29,24 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
                 this.tohideErrorMessage=true;
             }
         }
-        userModel=new User("","","","");
+        userModel=new User("","","","",false,null);
         tohideErrorMessage:Boolean=true;
         ErrorMessage:String="";
-        
-         submit(HtmlInputElement)
+        fileChanged(event)
+        {
+            this.userModel.file=event.target.files[0];
+        }
+         submit(FormData)
          {
-           this.registerService.Register(this.userModel)
+         /*   let inputEl: HTMLInputElement = 
+            let fileCount: number = inputEl.files.length;   
+             let formData = new FormData();  
+             if (fileCount > 0) {
+                     formData.append('image', inputEl.files.item(0));
+              }
+*/
+
+           this.registerService.Register(FormData.value)
            .subscribe((res)=>
            {
             this.tohideErrorMessage=res.result; 

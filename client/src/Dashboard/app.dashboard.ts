@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { JWTAuthenticator } from 'src/service/JWTAuthenticatorService';
 import { Router } from '@angular/router';
 import { UserEditComponent } from 'src/EditDialog/UserEdit/UserEditComponent';
+import { User } from 'src/Model/user';
 
 @Component(
     {
@@ -10,8 +11,8 @@ import { UserEditComponent } from 'src/EditDialog/UserEdit/UserEditComponent';
         entryComponents:[UserEditComponent]
     })
 export class DashboardComponent implements OnInit {
+    private UserModel:User;
     constructor(private jwtauthenticator: JWTAuthenticator,private router:Router) {
-
     }
     ngOnInit() {
         this.jwtauthenticator.validateToken(localStorage.getItem("UserName"))

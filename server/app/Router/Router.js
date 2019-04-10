@@ -1,19 +1,30 @@
 var express = require("express");
+var multer=require('multer');
 var router = express.Router();
 var userController = require("../Controller/UserController");
 var LoginController = require("../Controller/LoginController");
 var jwtController = require("../Controller/JWTController");
+const diskStorage=multer.diskStorage({destination:'uploads/',
+filename:function(req,file,callback)
+{
+callback(null,file.originalname);
+}
+});
+const upload=multer({storage:diskStorage});
+
 router.use(function (req, res, next) {
     next();
 })
 router.get("/users", function (req, res) {
     res.send("firstUser");
 })
-router.post("/createUser", function (req, res) {
+router.post("/createUser",upload.single('userPhoto'), function (req, res) {
     var user = userController.FormUserEntity(req);
-    userController.Create(user, res);
-
+    userController.Create(req,user, res);
+    console.log(req.file);
+res.end();
 })
+
 router.post("/Login", function (req, res) {
     LoginController.LoginUser(req.body, res);
 })

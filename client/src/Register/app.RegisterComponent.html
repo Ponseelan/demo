@@ -1,6 +1,6 @@
 <h1 class="h1">Registration!!!</h1>
 <div class="container">
-  <form (ngSubmit)="submit(ConfirmPassword)" #f='ngForm'>
+  <form (ngSubmit)="submit(f)" #f='ngForm' enctype="multipart/form-data">
     <div class="form-group">
       <label for="FirstName">First Name</label>
       <input type="text" class="form-control" id="FirstName" required [(ngModel)]="userModel.FirstName" name="FirstName"
@@ -29,8 +29,13 @@
       <div [hidden]='!LoginName.errors.required'>LoginName is required</div>
 
     </div>
+
     <div class="form-group">
-      <label for="Password">Password</label>
+      <label for="IsAdmin">IsAdmin</label>
+      <input type="checkbox"  id="IsAdmin"   [(ngModel)]="userModel.IsAdmin" name="IsAdmin" />
+    </div>
+    <div class="form-group">
+      <label for="Password">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
       <input type="Password" class="form-control" id="Password" required [(ngModel)]="userModel.Password" #Password='ngModel'
         name="Password" />
     </div>
@@ -51,7 +56,10 @@
     <div *ngIf='(LoginName.errors && LoginName.touched) || !tohideErrorMessage' class="form-group">
       <span [hidden]='(tohideErrorMessage || !LoginName.touched)' class="alert alert-danger" [innerHtml]="ErrorMessage"></span>
     </div>
-    {{LoginName.errors}}
+    <div class="form-group">
+      <label for="Image">Upload Image</label>
+    <input type="file" class="form-group"  [(ngModel)]='userModel.file' #File='ngModel' name="userPhoto"/>
+    </div>
     <div class="form-group">
       <button type="submit" [disabled]='f.invalid' class="btn btn-success">Submit</button>
     </div>

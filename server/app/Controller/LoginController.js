@@ -15,7 +15,7 @@ AuthenticateController.Authenticate(LoginModel.LoginName,LoginModel.Password,fun
         {
             if(IsSuccess)
             {
-               var token= jsonwebtoken.sign({LoginName:LoginModel.LoginName},'secret');
+               var token= jsonwebtoken.sign({LoginName:LoginModel.LoginName},'secret',{expiresIn:60});
                 var resultJson='{"status":true,"Message":"Logged In successfully","token":"'+token+'"}';
                 res.end(resultJson);
             }

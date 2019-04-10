@@ -8,7 +8,7 @@ import { UserService } from 'src/service/UserService';
    styleUrls:['./UserEdit.css']
 })  
 export class UserEditComponent implements OnInit {  
-   userModel :User=new User("","","","");
+   userModel :User=new User("","","","",false,null);
    returnData={usermodel:this.userModel,isEdited:true};
    constructor(@Inject(MAT_DIALOG_DATA) data:any,userService:UserService,private dialogref:MatDialogRef<UserEditComponent>) 
    {
