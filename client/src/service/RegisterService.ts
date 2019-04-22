@@ -13,6 +13,6 @@ export class RegisterService
         Register(UserModel):Observable<any>
         {
                 return this.httpClient.post(Config.AppURL+"/createUser",UserModel);
-           //return this.httpClient.post(Config.AppURL+"/createUser",{UserModel},{headers:{'content-type':'multipart/form-data'}, responseType:"json"});
+           //return this.httpClient.post(Config.AppURL+"/createUser",UserModel,{headers:{'content-type':'multipart/form-data'}, responseType:"json"});
         }
 }

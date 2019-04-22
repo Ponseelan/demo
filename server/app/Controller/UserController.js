@@ -27,12 +27,7 @@ validateloginName=function(LoginName,response,callback)
 }
 userController.Create=function(req,user,res)
 {
-    console.log(req.file);
-    upload(req,res,function(err,data)
-    {
-        if(err)
-        console.log(err);
-    })
+
 
     bcrypt.Encrypt(user.Password,function(encryptedPassword)
     {
@@ -43,6 +38,7 @@ userController.Create=function(req,user,res)
         userentity.LoginName=user.LoginName;
         userentity.Password=encryptedPassword;
         userentity.IsAdmin=user.IsAdmin;
+        userentity.imgPath=user.imgPath;
         validateloginName(userentity.LoginName,res,function()
         {
             userentity.save(function(err)
@@ -59,11 +55,13 @@ userController.Create=function(req,user,res)
 }
 userController.FormUserEntity=function(req)
 {
-usermodel.FirstName=req.body.UserModel.FirstName;
-usermodel.LastName=req.body.UserModel.LastName;
-usermodel.LoginName=req.body.UserModel.LoginName;
-usermodel.Password=req.body.UserModel.Password
-usermodel.IsAdmin=req.body.UserModel.IsAdmin
+var user=JSON.parse(req.body.userModel);
+usermodel.FirstName=user.FirstName;
+usermodel.LastName=user.LastName;
+usermodel.LoginName=user.LoginName;
+usermodel.Password=user.Password;
+usermodel.IsAdmin=user.IsAdmin;
+usermodel.imgPath=req.file.path;
 return usermodel;
 }
 formJson=function(param)

@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked, InjectionToken } from '@angular/core';
+import { Component, AfterViewChecked, InjectionToken, ViewChild, ElementRef } from '@angular/core';
 import {User} from '../Model/user';
 import {Router} from '@angular/router';
 import { RegisterService } from 'src/service/RegisterService';
@@ -16,6 +16,7 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
     })
     export class RegisterComponent 
     {        
+        @ViewChild('File') private inputFile:ElementRef;
         constructor(private registerService:RegisterService,private router:Router)
         {
             
@@ -23,7 +24,6 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
 
         ResetAlreadyLoginNameExistErrorMessage()
         {
-            console.log("error");
             if(!this.tohideErrorMessage)
             {
                 this.tohideErrorMessage=true;
@@ -36,17 +36,19 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
         {
             this.userModel.file=event.target.files[0];
         }
-         submit(FormData)
+         submit()
          {
-         /*   let inputEl: HTMLInputElement = 
-            let fileCount: number = inputEl.files.length;   
-             let formData = new FormData();  
-             if (fileCount > 0) {
-                     formData.append('image', inputEl.files.item(0));
-              }
-*/
-
-           this.registerService.Register(FormData.value)
+            let inputEl: HTMLInputElement = this.inputFile.nativeElement;
+            let fileCount: number = inputEl.files.length;
+var formData=new FormData();
+if (fileCount > 0) 
+{ 
+    for (let i = 0; i < fileCount; i++) {
+        formData.append('userPhoto', inputEl.files.item(i));
+    }
+}
+formData.append("userModel",JSON.stringify(this.userModel));
+           this.registerService.Register(formData)
            .subscribe((res)=>
            {
             this.tohideErrorMessage=res.result; 

@@ -21,8 +21,6 @@ router.get("/users", function (req, res) {
 router.post("/createUser",upload.single('userPhoto'), function (req, res) {
     var user = userController.FormUserEntity(req);
     userController.Create(req,user, res);
-    console.log(req.file);
-res.end();
 })
 
 router.post("/Login", function (req, res) {

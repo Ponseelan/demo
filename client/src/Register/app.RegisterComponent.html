@@ -31,8 +31,8 @@
     </div>
 
     <div class="form-group">
-      <label for="IsAdmin">IsAdmin</label>
-      <input type="checkbox"  id="IsAdmin"   [(ngModel)]="userModel.IsAdmin" name="IsAdmin" />
+      <label for="IsAdmin">Admin</label>   
+      &nbsp;&nbsp;&nbsp;<input type="checkbox"  id="IsAdmin"   [(ngModel)]="userModel.IsAdmin" name="IsAdmin" />
     </div>
     <div class="form-group">
       <label for="Password">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -58,7 +58,7 @@
     </div>
     <div class="form-group">
       <label for="Image">Upload Image</label>
-    <input type="file" class="form-group"  [(ngModel)]='userModel.file' #File='ngModel' name="userPhoto"/>
+    <input type="file" class="form-group" name="userPhoto"  #File />
     </div>
     <div class="form-group">
       <button type="submit" [disabled]='f.invalid' class="btn btn-success">Submit</button>
