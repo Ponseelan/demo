@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked, InjectionToken, ViewChild, ElementRef } from '@angular/core';
+import { Component,  InjectionToken, ViewChild, ElementRef } from '@angular/core';
 import {User} from '../Model/user';
 import {Router} from '@angular/router';
 import { RegisterService } from 'src/service/RegisterService';

@@ -7,7 +7,7 @@ import { User } from 'src/Model/user';
 @Component(
     {
         selector:'dashboard',
-        templateUrl: './app.dashboard.html',
+        templateUrl: './app.Admindashboard.html',
         entryComponents:[UserEditComponent]
     })
 export class DashboardComponent implements OnInit {
