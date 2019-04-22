@@ -21,10 +21,6 @@
       <div [hidden]='!LastName.errors.required'>LastName is required</div>
     </div>
     <div class="form-group">
-      <label for="IsAdmin">Admin</label>
-      <input type="checkbox" class="form-control" [(ngModel)]="userModel.IsAdmin" name="IsAdmin"/>
-    </div>
-    <div class="form-group">
       <label for="LoginName">Login Name</label>
       <input type="text" class="form-control" id="LoginName" (mouseenter) ="ResetAlreadyLoginNameExistErrorMessage()" required [(ngModel)]="userModel.LoginName" #LoginName='ngModel'
         name="LoginName" />
@@ -36,7 +32,7 @@
 
     <div class="form-group">
       <label for="IsAdmin">Admin</label>   
-      &nbsp;&nbsp;&nbsp;<input type="checkbox"  id="IsAdmin"   [(ngModel)]="userModel.IsAdmin" name="IsAdmin" />
+      &nbsp;&nbsp;&nbsp;<input type="checkbox"  id="IsAdmin"    name="IsAdmin" />
     </div>
     <div class="form-group">
       <label for="Password">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;

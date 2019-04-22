@@ -4,14 +4,7 @@ var router = express.Router();
 var userController = require("../Controller/UserController");
 var LoginController = require("../Controller/LoginController");
 var jwtController = require("../Controller/JWTController");
-const diskStorage=multer.diskStorage({destination:'uploads/',
-filename:function(req,file,callback)
-{
-callback(null,file.originalname);
-}
-});
-const upload=multer({storage:diskStorage});
-
+var upload=require('../Controller/MulterController');
 router.use(function (req, res, next) {
     next();
 })

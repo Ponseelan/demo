@@ -10,7 +10,7 @@ import { User } from 'src/Model/user';
         templateUrl: './app.Admindashboard.html',
         entryComponents:[UserEditComponent]
     })
-export class DashboardComponent implements OnInit {
+export class AdminDashboardComponent implements OnInit {
     private UserModel:User;
     constructor(private jwtauthenticator: JWTAuthenticator,private router:Router) {
     }
