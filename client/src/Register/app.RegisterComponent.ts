@@ -1,8 +1,10 @@
-import { Component,  InjectionToken, ViewChild, ElementRef } from '@angular/core';
+import { Component,  InjectionToken, ViewChild, ElementRef, Output } from '@angular/core';
 import {User} from '../Model/user';
 import {Router} from '@angular/router';
 import { RegisterService } from 'src/service/RegisterService';
 import {HttpClient } from '@angular/common/http';
+import { EventEmitter } from '@angular/core';
+import { SpinnerService } from 'src/service/SpinnerService';
  function getRegisterProvider(httpclient:HttpClient):RegisterService
 {
    return new RegisterService(httpclient);
@@ -17,9 +19,10 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
     export class RegisterComponent 
     {        
         @ViewChild('File') private inputFile:ElementRef;
-        constructor(private registerService:RegisterService,private router:Router)
+        @Output() changeStatus=new EventEmitter<string>();
+        constructor(private registerService:RegisterService,private router:Router,private SpinnerService:SpinnerService)
         {
-            
+            this.changeStatus.emit("d");
         }
 
         ResetAlreadyLoginNameExistErrorMessage()
@@ -38,6 +41,7 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
         }
          submit()
          {
+             this.SpinnerService.display(true);
             let inputEl: HTMLInputElement = this.inputFile.nativeElement;
             let fileCount: number = inputEl.files.length;
 var formData=new FormData();
@@ -51,6 +55,7 @@ formData.append("userModel",JSON.stringify(this.userModel));
            this.registerService.Register(formData)
            .subscribe((res)=>
            {
+               this.SpinnerService.display(false);
             this.tohideErrorMessage=res.result; 
             this.ErrorMessage=res.Message;
             if(res.result)

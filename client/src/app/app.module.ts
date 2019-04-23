@@ -18,7 +18,8 @@ import { UserGrid } from 'src/Grid/UserGrids/app.UserGrid';
 import { UserEditComponent } from 'src/EditDialog/UserEdit/UserEditComponent';
 import { MatDialogModule, MatNativeDateModule, MatCardModule, MatToolbarModule, MatIconModule, MatButtonModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-
+import {NgxLoadingModule} from 'ngx-loading';
+import { SpinnerService } from 'src/service/SpinnerService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,9 +42,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     MatIconModule,
     MatButtonModule,
     MatNativeDateModule,
+    NgxLoadingModule.forRoot({}),
     AgGridModule.withComponents([])
   ],
-  providers: [LoginService,RegisterService,JWTAuthenticator,UserService],
+  providers: [LoginService,RegisterService,JWTAuthenticator,UserService,SpinnerService],
   bootstrap: [AppComponent],
   entryComponents: [
    UserEditComponent
