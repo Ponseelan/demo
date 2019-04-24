@@ -5,11 +5,13 @@ var app=express();
 var bodyparser=require("body-parser");
 var router=require("./app/Router/Router");
 var cors=require("cors");
+var imagedir = require('path').join(__dirname,'/');
+app.use(express.static(imagedir));
 app.use(bodyparser.urlencoded({urlencoded:true}));
 app.use(cors());
 app.use(bodyparser.json());
 app.use("/",router);
 app.listen(8081,function()
 {   
-    console.log("server is created in 8081");
+    console.log("server is created in 8081"+imagedir);
 });

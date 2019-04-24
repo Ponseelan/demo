@@ -11,7 +11,7 @@ import { LoginService } from 'src/service/LoginService';
 import { LoginComponent } from 'src/Login/app.LoginComponent';
 import { RegisterService } from 'src/service/RegisterService';
 import { ConfirmPasswordDirective } from 'src/Directive/app.ConfirmPasswordDirective';
-import { AdminDashboardComponent } from 'src/AdminDashboard/app.Admindashboard';
+import { DashboardComponent } from 'src/Dashboard/app.Dashboard';
 import { JWTAuthenticator } from 'src/service/JWTAuthenticatorService';
 import { UserService } from 'src/service/UserService';
 import { UserGrid } from 'src/Grid/UserGrids/app.UserGrid';
@@ -26,7 +26,7 @@ import { SpinnerService } from 'src/service/SpinnerService';
     RegisterComponent,
     LoginComponent,
     ConfirmPasswordDirective,
-    AdminDashboardComponent,
+    DashboardComponent,
     UserGrid,
   UserEditComponent
     ],

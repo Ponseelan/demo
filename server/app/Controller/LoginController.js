@@ -1,8 +1,21 @@
 var LoginModel=require("../Model/LoginModel");
+var UserModel=require('../Model/UserModel');
 var AuthenticateController=require("../Controller/AuthenticateUserController");
 var UserLoginHistoryController=require("../Controller/UserLoginHistoryController");
 var jsonwebtoken=require('jsonwebtoken');
 var LoginController={};
+GetUserId=function(Name,callback)
+{
+    UserModel.findOne({LoginName:Name},function(err,data)
+    {
+        if(err)
+        callback(err,data.id);
+        else
+        {
+        callback(null,data.id);    
+        }
+    })
+}
 LoginController.LoginUser=function(body,res)
 {
 LoginModel.LoginName=body.LoginModel.LoginName;
@@ -16,8 +29,11 @@ AuthenticateController.Authenticate(LoginModel.LoginName,LoginModel.Password,fun
             if(IsSuccess)
             {
                var token= jsonwebtoken.sign({LoginName:LoginModel.LoginName},'secret',{expiresIn:60});
-                var resultJson='{"status":true,"Message":"Logged In successfully","token":"'+token+'"}';
+              GetUserId(LoginModel.LoginName,function(err,data){
+                var resultJson='{"status":true,"Message":"Logged In successfully","token":"'+token+'","UserId":"'+data+'"}';
                 res.end(resultJson);
+              })
+               
             }
             else
             {

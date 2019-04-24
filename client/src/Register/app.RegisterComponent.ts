@@ -19,12 +19,10 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
     export class RegisterComponent 
     {        
         @ViewChild('File') private inputFile:ElementRef;
-        @Output() changeStatus=new EventEmitter<string>();
         constructor(private registerService:RegisterService,private router:Router,private SpinnerService:SpinnerService)
         {
-            this.changeStatus.emit("d");
+         
         }
-
         ResetAlreadyLoginNameExistErrorMessage()
         {
             if(!this.tohideErrorMessage)
@@ -44,18 +42,18 @@ const  REGISTER_SERVICE_TOKEN=new InjectionToken<RegisterService>("REGISTER_SERV
              this.SpinnerService.display(true);
             let inputEl: HTMLInputElement = this.inputFile.nativeElement;
             let fileCount: number = inputEl.files.length;
-var formData=new FormData();
-if (fileCount > 0) 
-{ 
-    for (let i = 0; i < fileCount; i++) {
-        formData.append('userPhoto', inputEl.files.item(i));
-    }
-}
+            var formData=new FormData();
+            if (fileCount > 0) 
+            { 
+            for (let i = 0; i < fileCount; i++) {
+            formData.append('userPhoto', inputEl.files.item(i));
+            }
+            }
 formData.append("userModel",JSON.stringify(this.userModel));
            this.registerService.Register(formData)
            .subscribe((res)=>
            {
-               this.SpinnerService.display(false);
+            this.SpinnerService.display(false);
             this.tohideErrorMessage=res.result; 
             this.ErrorMessage=res.Message;
             if(res.result)

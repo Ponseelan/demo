@@ -1,8 +1,14 @@
+<div  class="Logout-Container">
+<div class="User-Logo">
+        <img [src]="UserModel.file" class="User-Logo" />
+</div>
 <div class="logoutbox">
     <button  (click)='logout()'>logout</button>
 </div>
-<div>
+</div>
+<div *ngIf="UserModel.IsAdmin">
     <h1 class="form-control">dashboard</h1>
         <app-UserGrid>
         </app-UserGrid>
 </div>
+
