@@ -16,7 +16,7 @@ import { JWTAuthenticator } from 'src/service/JWTAuthenticatorService';
 import { UserService } from 'src/service/UserService';
 import { UserGrid } from 'src/Grid/UserGrids/app.UserGrid';
 import { UserEditComponent } from 'src/EditDialog/UserEdit/UserEditComponent';
-import { MatDialogModule, MatNativeDateModule, MatCardModule, MatToolbarModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatDialogModule, MatNativeDateModule, MatCardModule,MatListModule, MatToolbarModule, MatIconModule, MatButtonModule,MatSidenavModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {NgxLoadingModule} from 'ngx-loading';
 import { SpinnerService } from 'src/service/SpinnerService';
@@ -37,6 +37,8 @@ import { SpinnerService } from 'src/service/SpinnerService';
     FormsModule,
     HttpClientModule,
     MatDialogModule,
+    MatListModule,
+    MatSidenavModule,
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
